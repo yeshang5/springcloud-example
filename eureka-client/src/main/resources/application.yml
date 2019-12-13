@@ -1,5 +1,5 @@
 server:
-  port: 8762
+  port: 8763  #启动两个实例，使用ribbon访问实现负载均衡
 
 spring:
   application:
