@@ -7,3 +7,5 @@ eureka-consumer-feign|8765|服务消费者-feign方式 (默认集成了ribbon实
 
 eureka-consumer-feign 增加Hystrix熔断器仪表盘监控
 
+@EnableEurekaClient 注解标注的是服务提供者  
+@EnableDiscoveryClient  注解标注的是服务消费者
