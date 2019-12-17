@@ -10,8 +10,8 @@ spring:
       server:
         git:
           uri: https://github.com/yeshang5/springcloud-config-server.git   #仓库地址
-          username:               #访问Git仓库的账号
-          password:               #访问Git仓库的密码
+          username: 646066936@qq.com               #访问Git仓库的账号
+          password: lovebh19951127!!              #访问Git仓库的密码
           search-paths: respo   #配置仓库路径(存放配置文件的目录)
 
 eureka:
