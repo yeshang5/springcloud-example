@@ -10,6 +10,7 @@
         <module name="eureka-server" />
         <module name="eureka-client" />
         <module name="config-client" />
+        <module name="zipkin" />
         <module name="eureka-consumer-feign" />
         <module name="config-server" />
         <module name="eureka-consumer-ribbon" />
@@ -24,6 +25,7 @@
       <module name="eureka-consumer-feign" options="-parameters" />
       <module name="eureka-consumer-ribbon" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="zipkin" options="-parameters" />
       <module name="zuul" options="-parameters" />
     </option>
   </component>
