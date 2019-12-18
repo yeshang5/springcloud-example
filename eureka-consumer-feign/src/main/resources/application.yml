@@ -6,7 +6,8 @@ spring:
       name: eureka-consumer-feign
       label: master
       profile: dev
-
+  zipkin: #zipkin 链路追踪
+    base-url: http://localhost:9411
 # 本地配置
 #server:
 #  port: 8765

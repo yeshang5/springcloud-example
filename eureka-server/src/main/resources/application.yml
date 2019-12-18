@@ -4,13 +4,15 @@ server:
 spring:
   application:
     name: eureka-server
+  zipkin: #zipkin 閾捐矾杩借釜
+    base-url: http://localhost:9411
 
 eureka:
   instance:
     hostname: localhost
   client:
-    register-with-eureka: false  #作为服务端的时候设置为false
-    fetch-registry: false       #作为服务端的时候设置为false
+    register-with-eureka: false  #浣滀负鏈嶅姟绔惎鍔紝璁剧疆涓篺alse
+    fetch-registry: false       #浣滀负鏈嶅姟绔惎鍔紝璁剧疆涓篺alse
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 

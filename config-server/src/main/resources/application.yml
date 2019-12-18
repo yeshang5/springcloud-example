@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: config-server
+  zipkin: #zipkin 链路追踪
+    base-url: http://localhost:9411
   cloud:
     config:
       label: master   #配置仓库分支
