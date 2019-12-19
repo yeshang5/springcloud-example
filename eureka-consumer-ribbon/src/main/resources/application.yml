@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: eureka-consumer-ribbon
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084  #springboot-admin服务监控server地址
 
 eureka:
   client:
