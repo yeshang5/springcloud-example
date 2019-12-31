@@ -23,5 +23,20 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8760/eureka/
+  instance:
+    prefer-ip-address: true   #使用ip地址注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}   #向注册中心注册服务id
+    lease-renewal-interval-in-seconds: 5  #向注册中心注册服务id
+    lease-expiration-duration-in-seconds: 10  #续约到期的时间
+
+#暴露健康检查信息,供spingboot-Admin服务监控使用
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 

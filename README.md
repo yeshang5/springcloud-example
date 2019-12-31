@@ -7,6 +7,7 @@ eureka-consumer-feign|8765|服务消费者-feign方式 (默认集成了ribbon实
 config-server|8888|分布式配置中心服务端
 config-client||分布式配置中心实例
 zuul|8766|路由网关
+zipkin-server|9411 |链路追踪服务端
 springcloud-admin|8084|springboot-admin服务监控
 
 
@@ -14,3 +15,26 @@ eureka-consumer-feign 增加Hystrix熔断器仪表盘监控
 
 @EnableEurekaClient 注解标注的是服务提供者  
 @EnableDiscoveryClient  注解标注的是服务消费者
+
+因为zipkin官方已经不推荐自行搭建server端，故直接下载官方server端的jar包，
+下载地址：https://dl.bintray.com/openzipkin/maven/io/zipkin/java/zipkin-server/
+
+通过以下命令启动服务，默认INFO级别可以不设置logging日志级别
+```
+java -jar zipkin-server-2.12.2-exec.jar --logging.level.zipkin2=INFO
+```
+
+服务启动后访问`http://localhost:9411`即可看到zipkin的监控页面
+
+![](https://s2.ax1x.com/2019/12/30/lQeaZT.png)
+
+##  创建客户端
+在之前的项目[`springcloud-example`](https://github.com/yeshang5/springcloud-example)的每个Module项目中添加pom依赖
+```xml
+ <!--zipkin链路追踪-->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-zipkin</artifactId>
+</dependency>
+```
+

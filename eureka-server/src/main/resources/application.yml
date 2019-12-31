@@ -14,10 +14,22 @@ spring:
 eureka:
   instance:
     hostname: localhost
+    prefer-ip-address: true   #使用ip地址注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}   #向注册中心注册服务id
   client:
-    register-with-eureka: false  #作为服务端启动，设置为false
-    fetch-registry: false       #作为服务端启动，设置为false
+#    register-with-eureka: false  #注册到server,作为服务端启动，设置为false
+#    fetch-registry: false       #作为服务端启动，设置为false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8760/eureka/   #eureka-server相互注册，集群实现高可用
 
 
+#暴露健康检查信息,供spingboot-Admin服务监控使用
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
